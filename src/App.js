@@ -1,8 +1,21 @@
-import './App.css';
+import { useState } from 'react';
+import './App.scss';
 
-function App() {
+import NewsDetails from './components/NewsDetails/NewsDetails';
+import NewsListing from './components/NewsListing/NewsListing';
+
+const App = () => {
+  const [selectedNews, setSelectedNews] = useState(null);
+
+  const selectNews = news => {
+    news && setSelectedNews(news);
+  }
+
   return (
-    <p>base app</p>
+    <div className='app-container'>
+      <NewsListing onSelectNews={selectNews} />
+      <NewsDetails news={selectedNews} />
+    </div>
   );
 }
 
