@@ -1,0 +1,8 @@
+@import './shared/styles/font';
+
+
+body, p, figure {
+    font-family: $font-family-default;
+    margin: 0;
+    padding: 0;
+}

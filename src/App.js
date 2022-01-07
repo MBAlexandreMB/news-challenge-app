@@ -1,8 +1,9 @@
 import './App.css';
+import NewsListing from './components/NewsListing/NewsListing';
 
 function App() {
   return (
-    <p>base app</p>
+    <NewsListing />
   );
 }
 
