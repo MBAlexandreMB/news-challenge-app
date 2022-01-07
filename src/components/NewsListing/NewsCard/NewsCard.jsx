@@ -3,11 +3,12 @@ import { NO_IMAGE_URL } from './constants';
 
 import './NewsCard.scss';
 
-const NewsCard = ({ news: { title, description, urlToImage } }) => {
-    urlToImage = urlToImage || NO_IMAGE_URL;
+const NewsCard = ({onSelectNews, news }) => {
+    const { title, description } = news;
+    const urlToImage = news.urlToImage || NO_IMAGE_URL;
 
     return (
-        <div className='news-card-container'>
+        <div className='news-card-container' onClick={() => onSelectNews(news)}>
             <div className='news-title-image-container'>
                 <div>
                     <p className='news-title'>{title}</p>

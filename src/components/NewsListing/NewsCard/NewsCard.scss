@@ -1,4 +1,5 @@
 .news-card-container {
+    cursor: pointer;
     width: 35vw;
 
     &:not(:last-child) {
