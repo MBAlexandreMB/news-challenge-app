@@ -1,8 +1,11 @@
 @import './shared/styles/font';
 
-
-body, p, figure {
+body, p, figure, h1, h2, h3, h4 {
     font-family: $font-family-default;
     margin: 0;
     padding: 0;
+}
+
+html {
+    background-color: rgba(0, 0, 0, 0.03);
 }

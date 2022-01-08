@@ -14,7 +14,11 @@ const App = () => {
   return (
     <div className='app-container'>
       <NewsListing onSelectNews={selectNews} />
-      <NewsDetails news={selectedNews} />
+      {
+        selectedNews
+        ? <NewsDetails news={selectedNews} />
+        : <p>No news selected</p>
+      }
     </div>
   );
 }
