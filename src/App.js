@@ -11,19 +11,19 @@ const App = () => {
   const [newsList, newsListError] = useGetNews(setIsLoading);
   const [selectedNews, setSelectedNews] = useState(null);
 
-  const selectNews = news => {
-    news && setSelectedNews(news);
-  }
-
   return (
-    <div className='app-container'>
-      <NewsListing onSelectNews={selectNews} isAnyNewsSelected={!!selectedNews} newsList={newsList} />
+    <main className='app-container'>
+      <NewsListing
+        onSelectNews={news => setSelectedNews(news)}
+        isAnyNewsSelected={!!selectedNews}
+        newsList={newsList}
+      />
       {
         selectedNews
         ? <NewsDetails news={selectedNews} onClose={() => setSelectedNews(null)} />
         : <NoNewsSelected isLoading={!newsList.length && isLoading} />
       }
-    </div>
+    </main>
   );
 }
 

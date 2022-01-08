@@ -4,3 +4,6 @@ export const ICON_SIZES = {
     S: 10,
     M: 14,
 };
+
+export const UNKNOWN_SOURCE = "Unknown";
+export const UNKNOWN_PUBLISHED_DATE = "Unknown publication date";

@@ -1,7 +1,9 @@
 @import '../../shared/styles/sizes.scss';
+@import '../../shared/styles/spacers.scss';
 
 .news-listing-container {
     width: fit-content;
+    list-style: none;
 }
 
 @media (max-width: #{$breakpoint-tablet}) {
@@ -12,6 +14,6 @@
         overflow: scroll;
         overflow-y: hidden;
         scroll-behavior: smooth;
-        gap: 10px;
+        gap: $spacer-s;
     }
 }

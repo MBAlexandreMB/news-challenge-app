@@ -9,8 +9,10 @@ const NewsDetails = ({ news, onClose }) => {
 
     let contentText = null;
     if (content) {
-        const contentEndIdx = content.indexOf('…') + 2;
-        contentText = content.substring(0, contentEndIdx);
+        const contentEndIdx = content.lastIndexOf('…');
+        contentText = contentEndIdx !== -1
+            ? content.substring(0, contentEndIdx + 2)
+            : content;
     }
 
     return (
@@ -23,12 +25,12 @@ const NewsDetails = ({ news, onClose }) => {
                     src={urlToImage}
                     loading='lazy'
                     onError={onImageLoadingError}
-                    alt=''
+                    alt='' // The API returns no description of the image
                 />
             </figure>
             <div className='news-title-content-container'>
                 <h1>{title}</h1>
-                <h3>{description}</h3>
+                <h2>{description}</h2>
                 <p className='content'>
                     {contentText}
                     <a href={url} target="_blank" rel='noreferrer'>[continue reading]</a>
