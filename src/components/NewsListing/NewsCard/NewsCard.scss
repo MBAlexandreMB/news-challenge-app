@@ -2,9 +2,6 @@
 @import '../../../shared/styles/sizes.scss';
 @import '../../../shared/styles/spacers.scss';
 
-$card-height: 10rem;
-$card-width: 39rem;
-
 .news-card-container {
     display: flex;
     flex-flow: row nowrap;
