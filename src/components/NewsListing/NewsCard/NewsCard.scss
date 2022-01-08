@@ -1,8 +1,10 @@
+@import '../../../shared/styles/sizes.scss';
+
 $card-height: 100px;
 
 .news-card-container {
     box-sizing: border-box;
-    width: 35vw;
+    max-width: 390px;
     min-width: 390px;
     height: $card-height;
     margin-bottom: 20px;
@@ -21,23 +23,9 @@ $card-height: 100px;
     }
 
     .news-title {
-        font-size: 0.9rem;
+        font-size: 1.4rem;
         font-weight: bold;
     }
-
-    // .news-subtitle {
-    //     color: #888;
-    //     font-size: 0.75rem;
-    //     margin: 6px 0;
-    //     max-height: 44px;
-    //     width: 300px;
-
-    //     display: -webkit-box;
-    //     -webkit-line-clamp: 3;
-    //     -webkit-box-orient: vertical;
-    //     overflow: hidden;
-    //     text-overflow: ellipsis;
-    // }
 
     .news-image {
         max-width: 100px;
@@ -66,7 +54,26 @@ $card-height: 100px;
         text-align: end;
 
         color: rgba(0, 0, 0, 0.3);
-        font-size: 0.65rem;
         font-style: italic;
+    }
+}
+
+@media (max-width: #{$breakpoint-tablet}) {
+    .news-card-container {
+        width: 100%;
+    }
+}
+
+@media (max-width: #{$breakpoint-small-devices}) {
+    .news-card-container {
+        min-width: 290px;
+
+        .news-title {
+            font-size: 1.2rem;
+        }
+
+        .news-source-date {
+            font-size: 0.8rem;
+        }
     }
 }

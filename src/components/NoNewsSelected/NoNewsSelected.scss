@@ -1,0 +1,31 @@
+@import '../../shared/styles/sizes.scss';
+
+.no-news-container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    position: sticky;
+    top: 10px;
+
+    width: calc(100% - 437px);
+    height: fit-content;
+
+    .no-news-image {
+        width: 25vw;
+    
+        img {
+            width: 100%;
+        }
+    }
+
+    h1 {
+        font-size: 2vw;
+        text-align: center;
+    }
+}
+
+@media (max-width: #{$breakpoint-tablet}) {
+    .no-news-container {
+        display: none;
+    }
+}
