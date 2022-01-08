@@ -8,7 +8,8 @@ const http = axios.create({
     },
 });
 
-const getNews = (setNews, setNewsError) => {
+const getNews = (setNews, setNewsError, setIsLoading) => {
+    setIsLoading(true);
     http.get('/top-headlines?country=br')
         .then(result => {
             if (result && result.data) {
@@ -17,7 +18,8 @@ const getNews = (setNews, setNewsError) => {
         })
         .catch(error => {
             setNewsError(error);
-        });
+        })
+        .finally(() => setIsLoading(false));
 };
 
 export { getNews };

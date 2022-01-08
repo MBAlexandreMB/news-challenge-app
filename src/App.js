@@ -1,10 +1,14 @@
 import { useState } from 'react';
-import './App.scss';
 
 import NewsDetails from './components/NewsDetails/NewsDetails';
 import NewsListing from './components/NewsListing/NewsListing';
+import NoNewsSelected from './components/NoNewsSelected/NoNewsSelected';
+import { useGetNews } from './hooks';
+import './App.scss';
 
 const App = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [newsList, newsListError] = useGetNews(setIsLoading);
   const [selectedNews, setSelectedNews] = useState(null);
 
   const selectNews = news => {
@@ -13,8 +17,12 @@ const App = () => {
 
   return (
     <div className='app-container'>
-      <NewsListing onSelectNews={selectNews} />
-      <NewsDetails news={selectedNews} />
+      <NewsListing onSelectNews={selectNews} isAnyNewsSelected={!!selectedNews} newsList={newsList} />
+      {
+        selectedNews
+        ? <NewsDetails news={selectedNews} onClose={() => setSelectedNews(null)} />
+        : <NoNewsSelected isLoading={!newsList.length && isLoading} />
+      }
     </div>
   );
 }

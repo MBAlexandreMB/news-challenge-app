@@ -1,3 +1,17 @@
+@import '../../shared/styles/sizes.scss';
+
 .news-listing-container {
-    padding: 0 20px;
+    width: fit-content;
+}
+
+@media (max-width: #{$breakpoint-tablet}) {
+    .news-listing-container.selected {
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        overflow: scroll;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        gap: 10px;
+    }
 }
