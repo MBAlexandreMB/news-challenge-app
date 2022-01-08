@@ -1,11 +1,12 @@
 @import '../../shared/styles/sizes.scss';
+@import '../../shared/styles/spacers.scss';
 
 .no-news-container {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     position: sticky;
-    top: 10px;
+    top: $margin-s;
 
     width: calc(100% - 437px);
     height: fit-content;

@@ -17,23 +17,22 @@ const NewsCard = ({onSelectNews, news }) => {
         .toLocaleString(DateTime.DATETIME_SHORT);
 
     return (
-        <div className='news-card-container' onClick={() => onSelectNews(news)}>
-            <div className='news-title-image-container'>
-                <figure className='news-image'>
-                    <img
-                        src={urlToImage}
-                        loading='lazy'
-                        onError={onImageLoadingError}
-                        alt='' />
-                </figure>
-                <div className="title-source-date-container">
-                    <p className='news-title'>{titleToUse}</p>
-                    <p className="news-source-date">
-                        <strong>{sourceFromTitle}</strong> | {publishedDate}
-                    </p>
-                </div>
+        <section className='news-card-container' onClick={() => onSelectNews(news)}>
+            <figure className='news-image'>
+                <img
+                    src={urlToImage}
+                    loading='lazy'
+                    onError={onImageLoadingError}
+                    alt='' // The API returns no description of the image
+                />
+            </figure>
+            <div className="title-source-date-container">
+                <h1 className='news-title'>{titleToUse}</h1>
+                <p className="news-source-date">
+                    <strong>{sourceFromTitle}</strong> | {publishedDate}
+                </p>
             </div>
-        </div>
+        </section>
     );
 };
  

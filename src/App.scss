@@ -1,18 +1,19 @@
 @import './shared/styles/sizes.scss';
+@import './shared/styles/spacers.scss';
 
 .app-container {
     box-sizing: border-box;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
-    padding: 15px;
-    gap: 32px;
+    padding: $padding-m;
+    gap: $spacer-xl;
 }
 
 @media (max-width: #{$breakpoint-tablet}) {
     .app-container {
         flex-direction: column;
         align-items: center;
-        gap: 16px;
+        gap: $spacer-m;
     }
 }

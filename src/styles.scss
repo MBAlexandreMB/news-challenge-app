@@ -1,12 +1,12 @@
-@import './shared/styles/font';
+@import './shared/styles/fonts';
 
-body, p, figure, h1, h2, h3, h4 {
-    font-family: $font-family-default;
+body, main, ul, li, p, figure, h1, h2 {
     margin: 0;
     padding: 0;
 }
 
 html {
+    font-family: $font-family-default;
+    font-size: $font-size-default;
     background-color: rgba(0, 0, 0, 0.03);
-    font-size: 10px;
 }
