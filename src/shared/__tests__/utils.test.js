@@ -1,4 +1,38 @@
-import { Scheduler } from '../utils';
+import { NO_IMAGE_URL } from '../contants';
+import { onImageLoadingError, Scheduler } from '../utils';
+
+describe('onImageLoadingError', () => {
+    it('should set currentTarget.onerror as null', () => {
+        const currentTarget = { onerror: jest.fn(), src: null };
+        onImageLoadingError({currentTarget});
+
+        expect(currentTarget.onerror).toBeNull();
+    });
+
+    it('should set currentTarget.src if it is not set yet', () => {
+        const currentTarget = { onerror: jest.fn(), src: null };
+        onImageLoadingError({currentTarget});
+
+        expect(currentTarget.src).not.toBeFalsy();
+        expect(currentTarget.src).toBe(NO_IMAGE_URL);
+    });
+
+    it('should set currentTarget.src if it is set with something other than the default value', () => {
+        const currentTarget = { onerror: jest.fn(), src: 'otherSrc' };
+        onImageLoadingError({currentTarget});
+
+        expect(currentTarget.src).not.toBeFalsy();
+        expect(currentTarget.src).toBe(NO_IMAGE_URL);
+    });
+
+    it('should keep currentTarget.src value if it is set with default value', () => {
+        const currentTarget = { onerror: jest.fn(), src: NO_IMAGE_URL };
+        onImageLoadingError({currentTarget});
+
+        expect(currentTarget.src).not.toBeFalsy();
+        expect(currentTarget.src).toBe(NO_IMAGE_URL);
+    });
+});
 
 describe('Scheduler', () => {
     it('should set default values if no input is given upon creation', () => {
@@ -7,6 +41,18 @@ describe('Scheduler', () => {
         expect(scheduler.callback).toEqual(expect.any(Function));
         expect(scheduler.timeout).toBe(null);
         expect(scheduler.timestamp).toBe(null);
+    });
+
+    it('should work if no input is given upon creation', () => {
+        const scheduler = new Scheduler();
+        const defaultFunction = jest.spyOn(scheduler, 'callback');
+        jest.clearAllMocks();
+        jest.useFakeTimers();
+        scheduler.start(0);
+        jest.runAllTimers();
+
+        expect(defaultFunction).toHaveBeenCalled();
+        jest.restoreAllMocks();
     });
 
     describe('start', () => {
@@ -32,6 +78,17 @@ describe('Scheduler', () => {
 
             expect(oldCallback).not.toHaveBeenCalled();
             expect(newCallback).toHaveBeenCalled();
+        });
+        
+        it('should work without a callback', () => {
+            const oldCallback = jest.fn();
+            const scheduler = new Scheduler(oldCallback);
+            jest.clearAllMocks();
+            jest.useFakeTimers();
+            scheduler.start(0);
+            jest.runAllTimers();
+
+            expect(oldCallback).toHaveBeenCalled();
         });
 
         it('should set a new timestamp', () => {

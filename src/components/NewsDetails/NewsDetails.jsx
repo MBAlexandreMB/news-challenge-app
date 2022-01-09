@@ -11,7 +11,7 @@ const NewsDetails = ({ news, onClose }) => {
     if (content) {
         const contentEndIdx = content.lastIndexOf('…');
         contentText = contentEndIdx !== -1
-            ? content.substring(0, contentEndIdx + 2)
+            ? content.substring(0, contentEndIdx + 1)
             : content;
     }
 
@@ -31,8 +31,8 @@ const NewsDetails = ({ news, onClose }) => {
             <div className='news-title-content-container'>
                 <h1>{title}</h1>
                 <h2>{description}</h2>
-                <p className='content'>
-                    {contentText}
+                <p  className='content'>
+                    <span data-test="content">{contentText}</span>
                     <a href={url} target="_blank" rel='noreferrer'>[continue reading]</a>
                 </p>
             </div>

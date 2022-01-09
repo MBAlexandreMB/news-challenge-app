@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NewsCard /> should render correctly 1`] = `
+<section
+  className="news-card-container"
+  data-test="card-container"
+  onClick={[Function]}
+>
+  <figure
+    className="news-image"
+  >
+    <img
+      alt=""
+      loading="lazy"
+      onError={[Function]}
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBJvWZNK1Lm7z-Iw0g4RJvw6l1sPwOUDOaZW_AecE3ZZdPyy4KpWejikv7VSD4cuUQpOY&usqp=CAU"
+    />
+  </figure>
+  <div
+    className="title-source-date-container"
+  >
+    <h1
+      className="news-title"
+    />
+    <p
+      className="news-source-date"
+    >
+      <strong
+        data-test="source"
+      >
+        Unknown
+      </strong>
+       | 
+      <span
+        data-test="publishedAt"
+      >
+        Unknown publication date
+      </span>
+    </p>
+  </div>
+</section>
+`;

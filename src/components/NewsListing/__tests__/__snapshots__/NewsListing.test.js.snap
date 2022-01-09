@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NewsListing /> should render correctly 1`] = `
+<section
+  className="news-listing-container"
+>
+  <input
+    className="search-input"
+    data-test="search-input"
+    onChange={[Function]}
+    placeholder="Search"
+    type="text"
+    value=""
+  />
+  <ul
+    className="news-listing-ul "
+    data-test="news-list"
+  >
+    <li
+      key="fakeurl"
+    >
+      <NewsCard
+        key="fakeurl"
+        news={
+          Object {
+            "title": "faketitle",
+            "url": "fakeurl",
+          }
+        }
+        onSelectNews={[MockFunction]}
+      />
+    </li>
+    <li
+      key="fakeurl2"
+    >
+      <NewsCard
+        key="fakeurl2"
+        news={
+          Object {
+            "title": "faketitle2",
+            "url": "fakeurl2",
+          }
+        }
+        onSelectNews={[MockFunction]}
+      />
+    </li>
+  </ul>
+</section>
+`;
+
+exports[`<NewsListing /> should render correctly when loading 1`] = `
+<section
+  className="news-listing-container"
+>
+  <input
+    className="search-input"
+    data-test="search-input"
+    onChange={[Function]}
+    placeholder="Search"
+    type="text"
+    value=""
+  />
+  <ul
+    className="news-listing-ul "
+    data-test="news-list"
+  >
+    <li
+      key="fakeurl"
+    >
+      <NewsCard
+        key="fakeurl"
+        news={
+          Object {
+            "title": "faketitle",
+            "url": "fakeurl",
+          }
+        }
+        onSelectNews={[MockFunction]}
+      />
+    </li>
+    <li
+      key="fakeurl2"
+    >
+      <NewsCard
+        key="fakeurl2"
+        news={
+          Object {
+            "title": "faketitle2",
+            "url": "fakeurl2",
+          }
+        }
+        onSelectNews={[MockFunction]}
+      />
+    </li>
+    <li
+      className="cards-loading news-card-container"
+    >
+      <Loader
+        borderSize="4px"
+        size={24}
+      />
+    </li>
+  </ul>
+</section>
+`;

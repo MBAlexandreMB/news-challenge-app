@@ -3,7 +3,6 @@ import { Scheduler } from '../shared/utils';
 import { getNews } from './api';
 
 const useGetNews = (setIsLoading, setNewsLoaded, searchValue) => {
-    console.log('useGetNews', searchValue);
     const [news, setNews] = useState([]);
     const [newsError, setNewsError] = useState(null);
     const [triggerLoadMoreNews, setTriggerMoreNews] = useState({});
