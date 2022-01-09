@@ -30,7 +30,7 @@ const NewsListing = ({ isAnyNewsSelected, isLoading, onSelectNews, setIsLoading,
     useEffect(() => inView && loadMoreNews(), [inView]);
 
     return (
-        <section className='news-listing-container'>
+        <section className={`news-listing-container ${classSelected}`}>
             <input
                 data-test="search-input"
                 type="text"

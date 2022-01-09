@@ -26,6 +26,10 @@
 }
 
 @media (max-width: #{$breakpoint-tablet}) {
+    .news-listing-container.selected {
+        max-width: none;
+    }
+
     .news-listing-ul.selected {
         width: 100%;
         display: flex;
