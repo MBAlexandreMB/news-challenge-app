@@ -2,12 +2,31 @@
 @import '../../shared/styles/spacers.scss';
 
 .news-listing-container {
+    width: 100%;
+    min-width: $card-width;
+    max-width: $card-width;
+
+    .search-input {
+        box-sizing: border-box;
+        margin-bottom: $margin-s;
+        width: 100%;
+    }
+}
+
+.news-listing-ul {
     width: fit-content;
     list-style: none;
+
+
+    .cards-loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 @media (max-width: #{$breakpoint-tablet}) {
-    .news-listing-container.selected {
+    .news-listing-ul.selected {
         width: 100%;
         display: flex;
         flex-flow: row nowrap;
@@ -15,5 +34,15 @@
         overflow-y: hidden;
         scroll-behavior: smooth;
         gap: $spacer-s;
+
+        .cards-loading {
+            flex-direction: column;
+        }
+    }
+}
+
+@media (max-width: #{$breakpoint-small-devices}) {
+    .news-listing-container {
+        min-width: 290px;
     }
 }

@@ -1,15 +1,31 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
+import { Scheduler } from '../shared/utils';
 import { getNews } from './api';
 
-const useGetNews = setIsLoading => {
+const useGetNews = (setIsLoading, setNewsLoaded, searchValue) => {
+    console.log('useGetNews', searchValue);
     const [news, setNews] = useState([]);
     const [newsError, setNewsError] = useState(null);
+    const [triggerLoadMoreNews, setTriggerMoreNews] = useState({});
+    const [scheduler] = useState(new Scheduler());
+    const getNewsIterator = useMemo(() =>
+        getNews(setNews, setNewsError, setIsLoading, setNewsLoaded, scheduler, searchValue),
+    [searchValue]);
 
     useEffect(() => {
-        getNews(setNews, setNewsError, setIsLoading);
-    }, [setNews, setNewsError, setIsLoading]);
+        setNewsLoaded(false);
+        setNews([]);
+    }, [searchValue]);
 
-    return [news, newsError];
+    useEffect(() => {
+        getNewsIterator.next();
+    }, [setNews, setNewsError, setIsLoading, triggerLoadMoreNews, getNewsIterator, scheduler, searchValue]);
+
+    const loadMoreNews = () => {
+        setTriggerMoreNews({});
+    }
+
+    return [news, loadMoreNews, scheduler, newsError];
 };
 
 export { useGetNews };
