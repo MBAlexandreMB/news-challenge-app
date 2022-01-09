@@ -7,7 +7,7 @@ import Loader from '../../shared/icons/Loader';
 import NewsCard from './NewsCard/NewsCard';
 import './NewsListing.scss';
 
-const NewsListing = ({ onSelectNews, isAnyNewsSelected, isLoading, setIsLoading, onNewsLoaded }) => {
+const NewsListing = ({ isAnyNewsSelected, isLoading, onSelectNews, setIsLoading, onNewsLoaded }) => {
     const [search, setSearch] = useState('');
     const [searchInputValue, setSearchInputValue] = useState('');
     const [newsList, loadMoreNews, scheduleASearch] = useGetNews(setIsLoading, onNewsLoaded, search);
@@ -30,15 +30,16 @@ const NewsListing = ({ onSelectNews, isAnyNewsSelected, isLoading, setIsLoading,
     useEffect(() => inView && loadMoreNews(), [inView]);
 
     return (
-        <section className='news-listing-container'>
+        <section className={`news-listing-container ${classSelected}`}>
             <input
+                data-test="search-input"
                 type="text"
                 className='search-input'
                 value={searchInputValue}
                 placeholder='Search'
                 onChange={onSearchInputChange}
             />
-            <ul className={`news-listing-ul ${classSelected}`}>
+            <ul data-test="news-list" className={`news-listing-ul ${classSelected}`}>
                 {
                     newsList.length > 0 &&
                     newsList.map((newsInfo, newsIdx) => {

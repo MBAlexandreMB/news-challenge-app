@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NewsListing /> should render correctly 1`] = `
+<article
+  className="news-details-container"
+>
+  <figure
+    className="news-image"
+  >
+    <button
+      className="close-details-button"
+      onClick={[MockFunction]}
+    >
+      <Cross
+        size={10}
+      />
+    </button>
+    <img
+      alt=""
+      loading="lazy"
+      onError={[Function]}
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBJvWZNK1Lm7z-Iw0g4RJvw6l1sPwOUDOaZW_AecE3ZZdPyy4KpWejikv7VSD4cuUQpOY&usqp=CAU"
+    />
+  </figure>
+  <div
+    className="news-title-content-container"
+  >
+    <h1>
+      fakeTitle
+    </h1>
+    <h2>
+      fakeDescription
+    </h2>
+    <p
+      className="content"
+    >
+      <span
+        data-test="content"
+      >
+        fakeContent
+      </span>
+      <a
+        href="fakeUrl"
+        rel="noreferrer"
+        target="_blank"
+      >
+        [continue reading]
+      </a>
+    </p>
+  </div>
+</article>
+`;
+
+exports[`<NewsListing /> should render correctly with a news with no values 1`] = `
+<article
+  className="news-details-container"
+>
+  <figure
+    className="news-image"
+  >
+    <button
+      className="close-details-button"
+      onClick={[MockFunction]}
+    >
+      <Cross
+        size={10}
+      />
+    </button>
+    <img
+      alt=""
+      loading="lazy"
+      onError={[Function]}
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBJvWZNK1Lm7z-Iw0g4RJvw6l1sPwOUDOaZW_AecE3ZZdPyy4KpWejikv7VSD4cuUQpOY&usqp=CAU"
+    />
+  </figure>
+  <div
+    className="news-title-content-container"
+  >
+    <h1 />
+    <h2 />
+    <p
+      className="content"
+    >
+      <span
+        data-test="content"
+      />
+      <a
+        rel="noreferrer"
+        target="_blank"
+      >
+        [continue reading]
+      </a>
+    </p>
+  </div>
+</article>
+`;

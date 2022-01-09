@@ -1,4 +1,4 @@
-export const NO_IMAGE_URL = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBJvWZNK1Lm7z-Iw0g4RJvw6l1sPwOUDOaZW_AecE3ZZdPyy4KpWejikv7VSD4cuUQpOY&usqp=CAU";
+export const NO_IMAGE_URL = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBJvWZNK1Lm7z-Iw0g4RJvw6l1sPwOUDOaZW_AecE3ZZdPyy4KpWejikv7VSD4cuUQpOY&usqp=CAU';
 
 export const ICON_SIZES = {
     S: 10,
@@ -8,11 +8,12 @@ export const ICON_SIZES = {
 };
 
 export const BORDER_SIZES = {
-    S: "2px",
-    M: "4px",
-    L: "6px",
-    XL: "8px",
+    S: '2px',
+    M: '4px',
+    L: '6px',
+    XL: '8px',
 };
 
-export const UNKNOWN_SOURCE = "Unknown";
-export const UNKNOWN_PUBLISHED_DATE = "Unknown publication date";
+export const UNKNOWN_SOURCE = 'Unknown';
+export const UNKNOWN_PUBLISHED_DATE = 'Unknown publication date';
+export const NO_NEWS_SELECTED_TEXT = 'Select something on the left list';

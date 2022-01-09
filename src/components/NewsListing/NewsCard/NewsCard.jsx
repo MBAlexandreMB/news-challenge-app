@@ -6,7 +6,7 @@ import { onImageLoadingError } from '../../../shared/utils';
 
 import './NewsCard.scss';
 
-const NewsCard = ({onSelectNews, news }) => {
+const NewsCard = ({ onSelectNews, news }) => {
     const { title, publishedAt } = news;
     const urlToImage = news.urlToImage || NO_IMAGE_URL;
     const sourceFromTitleIdx = (title && title.lastIndexOf("-")) || -1;
@@ -15,7 +15,7 @@ const NewsCard = ({onSelectNews, news }) => {
     let titleToUse = title;
     if (sourceFromTitleIdx !== -1) {
         sourceFromTitle = title.substring(sourceFromTitleIdx + 2);
-        titleToUse = title.substring(0, sourceFromTitleIdx);
+        titleToUse = title.substring(0, sourceFromTitleIdx - 1);
     }
     const publishedDate = publishedAt
         ? DateTime
@@ -24,7 +24,7 @@ const NewsCard = ({onSelectNews, news }) => {
         : UNKNOWN_PUBLISHED_DATE;
 
     return (
-        <section className='news-card-container' onClick={() => onSelectNews(news)}>
+        <section data-test="card-container" className='news-card-container' onClick={() => onSelectNews(news)}>
             <figure className='news-image'>
                 <img
                     src={urlToImage}
@@ -36,7 +36,7 @@ const NewsCard = ({onSelectNews, news }) => {
             <div className="title-source-date-container">
                 <h1 className='news-title'>{titleToUse}</h1>
                 <p className="news-source-date">
-                    <strong>{sourceFromTitle}</strong> | {publishedDate}
+                    <strong data-test="source">{sourceFromTitle}</strong> | <span data-test="publishedAt">{publishedDate}</span>
                 </p>
             </div>
         </section>

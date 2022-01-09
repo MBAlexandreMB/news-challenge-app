@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NoNewsSelected /> should render correctly when NOT loading 1`] = `
+<section
+  className="no-news-container"
+>
+  <figure
+    className="no-news-image"
+  >
+    <img
+      alt="Newspaper"
+      src="/images/newspaper.png"
+    />
+  </figure>
+  <h1>
+    Select something on the left list
+  </h1>
+</section>
+`;
+
+exports[`<NoNewsSelected /> should render correctly when loading 1`] = `
+<section
+  className="no-news-container"
+>
+  <Loader />
+</section>
+`;
+
+exports[`<NoNewsSelected /> should render correctly without props 1`] = `
+<section
+  className="no-news-container"
+>
+  <figure
+    className="no-news-image"
+  >
+    <img
+      alt="Newspaper"
+      src="/images/newspaper.png"
+    />
+  </figure>
+  <h1>
+    Select something on the left list
+  </h1>
+</section>
+`;
