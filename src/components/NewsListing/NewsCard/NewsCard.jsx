@@ -6,7 +6,7 @@ import { onImageLoadingError } from '../../../shared/utils';
 
 import './NewsCard.scss';
 
-const NewsCard = ({ onSelectNews, news }) => {
+const NewsCard = ({ onSelectNews, news,  isRead }) => {
     const { title, publishedAt } = news;
     const urlToImage = news.urlToImage || NO_IMAGE_URL;
     const sourceFromTitleIdx = (title && title.lastIndexOf("-")) || -1;
@@ -36,7 +36,9 @@ const NewsCard = ({ onSelectNews, news }) => {
             <div className="title-source-date-container">
                 <h1 className='news-title'>{titleToUse}</h1>
                 <p className="news-source-date">
-                    <strong data-test="source">{sourceFromTitle}</strong> | <span data-test="publishedAt">{publishedDate}</span>
+                    <strong data-test="source">{sourceFromTitle}</strong> | 
+                    <span data-test="publishedAt">{publishedDate}</span>
+                    {isRead && (<span> | read</span>)}
                 </p>
             </div>
         </section>

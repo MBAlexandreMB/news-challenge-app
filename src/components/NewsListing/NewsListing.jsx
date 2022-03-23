@@ -11,6 +11,7 @@ const NewsListing = ({ isAnyNewsSelected, isLoading, onSelectNews, setIsLoading,
     const [search, setSearch] = useState('');
     const [searchInputValue, setSearchInputValue] = useState('');
     const [newsList, loadMoreNews, scheduleASearch] = useGetNews(setIsLoading, onNewsLoaded, search);
+    const [readNews, setReadNews] = useState({});
     const classSelected = isAnyNewsSelected ? 'selected' : '';
 
     const onSearchInputChange = event => {
@@ -26,6 +27,14 @@ const NewsListing = ({ isAnyNewsSelected, isLoading, onSelectNews, setIsLoading,
         threshold: 0.99,
         delay: 200,
     });
+
+    const selectNews = news => {
+        onSelectNews(news);
+        setReadNews(previousValue => ({
+            ...previousValue,
+            [news.url]: true,
+        }));
+    };
 
     useEffect(() => inView && loadMoreNews(), [inView]);
 
@@ -49,7 +58,8 @@ const NewsListing = ({ isAnyNewsSelected, isLoading, onSelectNews, setIsLoading,
                                 <NewsCard
                                     key={newsInfo.url}
                                     news={newsInfo}
-                                    onSelectNews={onSelectNews}
+                                    onSelectNews={selectNews}
+                                    isRead={readNews[newsInfo.url]}
                                 />
                             </li>
                         )
